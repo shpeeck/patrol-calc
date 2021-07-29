@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-vidth, initial-scale=1.0">
+    <title>Patrol</title>
+    <link rel="stylesheet" href="./css/preloader.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="app">
+            <header>
+                <img src="img/Logo_patrol.png">
+            </header>
+            <select class="sel" v-on:change=leng() v-model="selected">
+                <option disabled value="">language</option>
+                <option>Eng</option>
+                <option>Ua</option>
+                <option>Ru</option>
+                <option>Pl</option>
+            </select>
+            <!-- <span>Выбрано: {{ selected }}</span> -->
+
+            <div class="allLabel">
+                <!-- <label for="start-time">Start time</label> -->
+                <label for="start-time">{{ text.start }}</label>
+                <input type="datetime-local" name="start-time" v-on:input="startTime" v-bind:value ="start">
+                <label for="end--time">{{ text.end }}</label>
+                <input type="datetime-local" name="end-time" v-on:input="endTime" v-bind:value ="end">
+                <label for="step-sec">{{ text.step }}</label>
+                <input type="number" name="step-sec"  step="1" v-on:input="stepTime" v-bind:value ="step">
+                <label for="details">{{ text.details }}</label>
+                <input type="number" name="details"  v-on:input="detailsCol" v-bind:value ="details">
+                <label for="step-sec">{{ text.downtime }}</label>
+                <input type="number" name="downtime"  v-on:input="downtimeTime" v-bind:value ="downtime">
+            </div>
+            <div>
+                <h2>{{text.totall}} {{ result }}</h2>
+            </div>
+            
+        </div>
+    </div>
+    <script src="./js/vuejs.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
