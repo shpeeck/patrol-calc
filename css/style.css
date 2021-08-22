@@ -20,8 +20,11 @@ body {
 }
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
     width:300px;
+    height: 100vh;
     max-width: 100%;
     margin: 0 auto;
     position: relative;
@@ -44,11 +47,38 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //align-items: center;
 }
 .sel {
     width: 50px;
     position: absolute;
     top: 15px;
     right: 10px;
+}
+footer {
+    width: 90%;
+    background: #bfbebe;
+    /*opacity: 50%;*/
+    margin: 15px 0 0 0;
+    padding: 5px 0;
+    border: 2px solid #D31145;
+    border-radius: 10px;
+    text-align: center;
+}
+footer h3 {
+    color: #D31145;
+}
+footer a {
+    color: #263692;
+    font-weight: bold;
+}
+.socials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+}
+.link {
+    margin: 10px auto;
+}
+.link a {
+    color: white;
 }

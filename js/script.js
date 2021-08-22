@@ -64,7 +64,6 @@ const app = {
             leng() {
                 if(this.selected == 'Eng') {
                     this.text = this.eng;
-                    // return this.eng;
                 }else if (this.selected == 'Ua') {
                     this.text = this.ua;
                 }else if (this.selected == 'Ru') {
@@ -75,12 +74,23 @@ const app = {
                     this.text = ''
                 }
             },
+            roundStep() {
+                if (this.step<100) {
+                    return this.step
+                } else {
+                    let ss = String(this.step).slice(0,2);
+                    let pp = String(this.step).slice(2);
+                    return parseFloat(ss + '.' + pp)
+                }
+            },
             startTime(event) {
                 this.start = event.target.value;
                 this.res()
             },
             endTime(event) {
                 this.end = event.target.value;
+                console.log(this.end);
+                this.res()
             },
             stepTime(event) {
                 this.step = event.target.value;
@@ -97,7 +107,7 @@ const app = {
             res() {
                     let a = this.end,
                     b = this.start
-                    c = (Math.floor((((new Date(a).getTime() - new Date(b).getTime()) / 1000) - (this.downtime * 60)) / this.step)) * this.details;
+                    c = (Math.floor((((new Date(a).getTime() - new Date(b).getTime()) / 1000) - (this.downtime * 60)) / this.roundStep())) * this.details;
                     if (c > 100000000000000) {
                         this.result = "not all fields";
                     }else {
